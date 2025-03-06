@@ -24,7 +24,7 @@ Warning: This mod is still unstable and may cause bugs, frame drops, etc.
   - 이벤트를 타임라인으로 볼 수 있으며, 클릭하여 해당 이벤트로 이동할 수 있습니다.
   - 아직 타임라인을 통한 수정은 지원되지 않습니다.
 
-* _타임라인의 코드는 [NeoEditor](https://github.com/NeoEditor/NeoEditor)의 코드를 일부 사용하였습니다. NeoEditor의 기여자 목록은 [이곳](https://github.com/NeoEditor/NeoEditor/graphs/contributors)에서 보실 수 있습니다._
+> _타임라인의 코드는 [NeoEditor](https://github.com/NeoEditor/NeoEditor)의 코드를 일부 사용하였습니다. NeoEditor의 기여자 목록은 [이곳](https://github.com/NeoEditor/NeoEditor/graphs/contributors)에서 보실 수 있습니다._
 
 ## EditorTweaks is back with more powerful features.
 
@@ -48,4 +48,4 @@ and **One more thing...**
   - You can view events in a timeline and click to navigate to them.
   - Modifications via the timeline are not yet supported.
 
-* _The code for the timeline is partially based on the code from [NeoEditor](https://github.com/NeoEditor/NeoEditor). You can view the list of contributors to NeoEditor [here](https://github.com/NeoEditor/NeoEditor/graphs/contributors)._
+> _The code for the timeline is partially based on the code from [NeoEditor](https://github.com/NeoEditor/NeoEditor). You can view the list of contributors to NeoEditor [here](https://github.com/NeoEditor/NeoEditor/graphs/contributors)._
