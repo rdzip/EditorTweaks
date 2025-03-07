@@ -2,6 +2,10 @@
 경고: 이 모드는 아직 불안정하며 버그, 프레임 드랍 등을 일으킬 수 있습니다.
 
 Warning: This mod is still unstable and may cause bugs, frame drops, etc.
+
+> 다운로드 링크는 하단에 있습니다.
+> 
+> The download link is at the bottom
 ## EditorTweaks가 더욱 강력한 기능과 함께 돌아왔습니다.
 
 ### 기능
@@ -59,3 +63,9 @@ and **One more thing...**
 https://github.com/user-attachments/assets/65d54f58-2bbf-493a-a853-ab8ca64114e3
 
 > _The code for the timeline is partially based on the code from [NeoEditor](https://github.com/NeoEditor/NeoEditor). You can view the list of contributors to NeoEditor [here](https://github.com/NeoEditor/NeoEditor/graphs/contributors)._
+
+--------------------
+
+다운로드는 [이 서버](https://discord.gg/PU2TUpxyur)에서 하실 수 있습니다.
+
+You can download this mod in [this server](https://discord.gg/PU2TUpxyur)
