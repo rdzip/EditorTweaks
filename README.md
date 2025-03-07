@@ -3,9 +3,9 @@
 
 Warning: This mod is still unstable and may cause bugs, frame drops, etc.
 
-> 다운로드 링크는 하단에 있습니다.
+> 다운로드 링크는 하단에 있습니다. 재배포 하지 마세요!
 > 
-> The download link is at the bottom
+> The download link is at the bottom. DO NOT DISTRIBUTE
 ## EditorTweaks가 더욱 강력한 기능과 함께 돌아왔습니다.
 
 ### 기능
