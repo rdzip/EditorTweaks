@@ -40,6 +40,8 @@ namespace EditorTweaks.Patch
 			var methodInfo = typeof(PreferencePatch).GetMethod(nameof(CategoryCallback), BindingFlags.NonPublic | BindingFlags.Static);
 			var callback = Delegate.CreateDelegate(delType, methodInfo);
 			__instance.Call("AddCategory", new object[] { "editortweaks.editorTweaks", callback });
+
+			KeybindPatch.SetupKeybindsMenu(__instance);
 		}
 	}
 }

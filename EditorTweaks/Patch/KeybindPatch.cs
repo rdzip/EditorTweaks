@@ -103,22 +103,8 @@ namespace EditorTweaks.Patch
 
 				category.AddEntry(new EditorPreferencesEntry("editortweaks." + Action.descriptionKey,
 					new EditorPreferencesKeybind(() => Keybinds, null
-					)));
+				)));
 			}
-		}
-
-		[HarmonyPatch(typeof(EditorPreferencesMenu), "SetupMenu")]
-		[HarmonyPostfix]
-		public static void SetupKeybindsMenu(EditorPreferencesMenu __instance)
-		{
-			EditorPreferencesKeybind.ButtonTemplate = __instance.tabButtonTemplate;
-			var delType = typeof(EditorPreferencesMenu).GetNestedType("AddCategoryDelegate",
-				System.Reflection.BindingFlags.NonPublic);
-
-			var methodInfo = typeof(KeybindPatch)
-				.GetMethod(nameof(KeybindPatch.KeybindCategoryCallback), BindingFlags.NonPublic | BindingFlags.Static);
-			var callback = Delegate.CreateDelegate(delType, methodInfo);
-			//__instance.Call("AddCategory", new object[] { "editortweaks.keybind", callback });
 
 			RaycastObject = new GameObject("Blocker");
 			var canvas = RaycastObject.AddComponent<Canvas>();
@@ -130,6 +116,18 @@ namespace EditorTweaks.Patch
 			image.color = new Color(0f, 0f, 0f, 0f);
 			RaycastObject.AddComponent<GraphicRaycaster>();
 			RaycastObject.SetActive(false);
+		}
+
+		public static void SetupKeybindsMenu(EditorPreferencesMenu __instance)
+		{
+			EditorPreferencesKeybind.ButtonTemplate = __instance.tabButtonTemplate;
+			var delType = typeof(EditorPreferencesMenu).GetNestedType("AddCategoryDelegate",
+				System.Reflection.BindingFlags.NonPublic);
+
+			var methodInfo = typeof(KeybindPatch)
+				.GetMethod(nameof(KeybindPatch.KeybindCategoryCallback), BindingFlags.NonPublic | BindingFlags.Static);
+			var callback = Delegate.CreateDelegate(delType, methodInfo);
+			__instance.Call("AddCategory", new object[] { "editortweaks.keybind", callback });
 		}
 
 		[HarmonyPatch(typeof(scnEditor), nameof(scnEditor.userIsEditingAnInputField), MethodType.Getter)]

@@ -27,22 +27,26 @@ namespace EditorTweaks.ADOFAI.EditorPreferencesControls
 
 		public override void Instantiate(RectTransform transform)
 		{
-			var layout = new GameObject("Layout");
-			var layoutGroup = layout.AddComponent<HorizontalLayoutGroup>();
-			layoutGroup.childAlignment = TextAnchor.UpperRight;
-			layoutGroup.childForceExpandHeight = false;
-			layoutGroup.childControlWidth = true;
-			layoutGroup.childForceExpandWidth = true;
+			//var layout = new GameObject("Layout");
+			//var layoutGroup = layout.AddComponent<HorizontalLayoutGroup>();
+			//layoutGroup.childAlignment = TextAnchor.UpperRight;
+			//layoutGroup.childForceExpandHeight = false;
+			//layoutGroup.childControlWidth = true;
+			//layoutGroup.childForceExpandWidth = true;
+			//layoutGroup.spacing = 5f;
+			//layoutGroup.padding = new RectOffset(0, 0, 0, 0);
+			//layout.AddComponent<LayoutElement>().preferredHeight = 32;
+			//layout.GetComponent<LayoutElement>().flexibleWidth = 1;
+			//layout.transform.SetParent(transform);
+
+			GameObject.DestroyImmediate(transform.gameObject.GetComponent<VerticalLayoutGroup>());
+			var layoutGroup = transform.gameObject.AddComponent<HorizontalLayoutGroup>();
 			layoutGroup.spacing = 5f;
-			layoutGroup.padding = new RectOffset(0, 0, 0, 0);
-			layout.AddComponent<LayoutElement>().preferredHeight = 32;
-			layout.GetComponent<LayoutElement>().flexibleWidth = 1;
-			layout.transform.SetParent(transform);
 
 			keybindButtons = new EditorPreferencesTabButton[2];
 
-			keybindButtons[0] = UnityEngine.Object
-				.Instantiate(ButtonTemplate, layout.transform);
+			keybindButtons[0] = GameObject
+				.Instantiate(ButtonTemplate, transform);
 
 			keybindButtons[0].gameObject.SetActive(true);
 			keybindButtons[0].text.alignment = TextAlignmentOptions.Center;
@@ -52,8 +56,8 @@ namespace EditorTweaks.ADOFAI.EditorPreferencesControls
 			keybindButtons[0].GetComponent<LayoutElement>().preferredHeight = 32;
 			keybindButtons[0].GetComponent<LayoutElement>().flexibleWidth = 1;
 
-			keybindButtons[1] = UnityEngine.Object
-				.Instantiate(keybindButtons[0], layout.transform);
+			keybindButtons[1] = GameObject
+				.Instantiate(keybindButtons[0], transform);
 
 			keybindButtons[0].button.onClick.AddListener(delegate ()
 			{
@@ -134,8 +138,8 @@ namespace EditorTweaks.ADOFAI.EditorPreferencesControls
 		{
 			if (this.Setter != null)
 			{
-
 				//TODO: Set Keybind
+				//Setter();
 			}
 		}
 	}
