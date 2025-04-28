@@ -7,6 +7,8 @@ namespace EditorTweaks.Patch.Timeline
 	public class TimelineEvent : MonoBehaviour
 	{
 		public TimelinePanel panel;
+		public Image overlayImage;
+		public Image offImage;
 		public Button button;
 
 		public LevelEvent targetEvent;
@@ -15,9 +17,10 @@ namespace EditorTweaks.Patch.Timeline
 		{
 			button.onClick.AddListener(() =>
 			{
-				scnEditor editor = scnEditor.instance;
-				editor.SelectFloor(editor.floors[targetEvent.floor]);
-				editor.levelEventsPanel.ShowPanelOfEvent(targetEvent);
+				if (RDInput.holdingControl)
+					panel.ToggleActiveEvent(targetEvent);
+				else
+					panel.ToggleSelectEvent(targetEvent, RDInput.holdingControl || RDInput.holdingShift);
 			});
 		}
 

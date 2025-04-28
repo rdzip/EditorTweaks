@@ -59,7 +59,7 @@ namespace EditorTweaks.Patch
 					btn.onClick.AddListener(() => ADOBase.editor.ShowPropertyHelp(true, btn.transform, message, "", ""));
 					warn.SetActive(Active);
 				}
-				catch (Exception ex)
+				catch
 				{
 					//ETLogger.Error(ex);
 				}

@@ -8,5 +8,7 @@ namespace EditorTweaks
 		public bool instantApplyColor = false;
 
 		public bool timelineHorizontalScrollDirectionInvert = false;
+		public bool timelineJumpToFloor = true;
+		public bool timelineJumpToEvent = true;
 	}
 }

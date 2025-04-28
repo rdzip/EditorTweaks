@@ -306,9 +306,14 @@
     <Compile Include="ADOFAI\EditorActions\ZoomOutCameraEditorActionEx.cs" />
     <Compile Include="ADOFAI\EditorPreferencesControls\EditorPreferencesKeybind.cs" />
     <Compile Include="ADOFAI\SmoothScrollRectForTimeline.cs" />
+    <Compile Include="ADOFAI\TimelineTransformGizmoHolder.cs" />
+    <Compile Include="Components\DragEventSender.cs" />
+    <Compile Include="Components\LevelEventDataCollection.cs" />
+    <Compile Include="Components\NoDragScrollRect.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="CoordinateText.cs" />
     <Compile Include="Patch\KeybindPatch.cs" />
+    <Compile Include="Patch\Timeline\LevelEventPatch.cs" />
     <Compile Include="Patch\MainPatch.cs" />
     <Compile Include="Patch\MiscPatch.cs" />
     <Compile Include="Patch\PreferencePatch.cs" />

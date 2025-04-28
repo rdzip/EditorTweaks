@@ -51,6 +51,8 @@ namespace EditorTweaks.Patch.Timeline
 		public static readonly Color FilterEventColor = new Color(0.368627f, 0.886274f, 1f);
 		public static readonly Color ModifierEventColor = new Color(1f, 0.709803f, 0.368627f);
 		public static readonly Color CommentEventColor = new Color(0.760784f, 0.368627f, 1f);
+		public static readonly Color DisabledEventColor = new Color(0.5f, 0.5f, 0.5f);
+		public static readonly Color HidedEventColor = Color.black.WithAlpha(0.5f);
 
 		public static readonly Dictionary<LevelEventType, Color> EventColors = new Dictionary<LevelEventType, Color>()
 		{

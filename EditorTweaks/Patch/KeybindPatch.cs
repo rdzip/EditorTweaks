@@ -38,8 +38,8 @@ namespace EditorTweaks.Patch
 				if (_currentEditingKeybind != null)
 					_currentEditingKeybind.CancelKeybind();
 				_currentEditingKeybind = value;
-				if (value == null) RaycastObject.SetActive(false);
-				else RaycastObject.SetActive(true);
+				if (value == null) RaycastObject?.SetActive(false);
+				else RaycastObject?.SetActive(true);
 			}
 		}
 
@@ -127,7 +127,7 @@ namespace EditorTweaks.Patch
 			var methodInfo = typeof(KeybindPatch)
 				.GetMethod(nameof(KeybindPatch.KeybindCategoryCallback), BindingFlags.NonPublic | BindingFlags.Static);
 			var callback = Delegate.CreateDelegate(delType, methodInfo);
-			__instance.Call("AddCategory", new object[] { "editortweaks.keybind", callback });
+			//__instance.Call("AddCategory", new object[] { "editortweaks.keybind", callback });
 		}
 
 		[HarmonyPatch(typeof(scnEditor), nameof(scnEditor.userIsEditingAnInputField), MethodType.Getter)]

@@ -24,6 +24,10 @@ namespace EditorTweaks.Patch
 			if (token.StartsWith("editortweaks."))
 			{
 				//TODO: return string.
+				if (token == "editortweaks.dialog.differentTypeEventSelected")
+					__result = "Different types of events have been selected. To change their properties, only select events of the same type.";
+				if (token == "editortweaks.reorderWarning")
+					__result = "Reorder timeline. Are you sure?";
 				return false;
 			}
 			else if (token.StartsWith("editor.prefs.fields.editortweaks."))
@@ -35,16 +39,20 @@ namespace EditorTweaks.Patch
 				{
 					token = token.Replace("editor.shortcuts.", "editortweaks.");
 					//TODO: return string.
-					if (token == "editortweaks.timeline.horizontal_scroll_direction_invert")
-						__result = "Invert timeline horizontal scroll";
-					if (token == "editortweaks.general.horizontal_property.description")
-						__result = "Need Restart Editor!!!";
 					if (token == "editortweaks.general.horizontal_property")
 						__result = "Enable horizontal properties";
-					if (token == "editortweaks.general.instant_apply_color.description")
-						__result = "It may cause a frame drops.";
-					if (token == "editortweaks.general.instant_apply_color")
+					else if (token == "editortweaks.general.horizontal_property.description")
+						__result = "Need Restart Editor!!!";
+					else if (token == "editortweaks.general.instant_apply_color")
 						__result = "Apply color instantly";
+					else if (token == "editortweaks.general.instant_apply_color.description")
+						__result = "It may cause a frame drops.";
+					else if (token == "editortweaks.timeline.horizontal_scroll_direction_invert")
+						__result = "Invert timeline horizontal scroll";
+					else if (token == "editortweaks.timeline.jump_to_floor")
+						__result = "Jump to floor when floor is selected";
+					else if (token == "editortweaks.timeline.jump_to_event")
+						__result = "Jump to event when event is selected";
 				}
 				return false;
 			}
@@ -54,6 +62,8 @@ namespace EditorTweaks.Patch
 				token = token.Substring(len, token.Length - len);
 				if (token == "editorTweaks")
 					__result = "EditorTweaks";
+				else if (token == "timeline")
+					__result = "Timeline";
 				else
 					__result = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(token);
 				return false;

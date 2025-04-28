@@ -11,7 +11,7 @@ namespace EditorTweaks.Patch
 	[HarmonyPatch]
 	public static class PreferencePatch
 	{
-		static void CategoryCallback(EditorPreferencesCategory category)
+		static void EditorTweaksCategoryCallback(EditorPreferencesCategory category)
 		{
 			category.AddEntry(new EditorPreferencesEntry("editortweaks.general.horizontal_property", new EditorPreferencesToggle(() => Main.ETConfig.horizontalProperty, (v) =>
 			{
@@ -23,9 +23,23 @@ namespace EditorTweaks.Patch
 				Main.ETConfig.instantApplyColor = v;
 				Main.Entry.OnSaveGUI(Main.Entry);
 			})));
+		}
+
+		static void TimelineCategoryCallback(EditorPreferencesCategory category)
+		{
 			category.AddEntry(new EditorPreferencesEntry("editortweaks.timeline.horizontal_scroll_direction_invert", new EditorPreferencesToggle(() => Main.ETConfig.timelineHorizontalScrollDirectionInvert, (v) =>
 			{
 				Main.ETConfig.timelineHorizontalScrollDirectionInvert = v;
+				Main.Entry.OnSaveGUI(Main.Entry);
+			})));
+			category.AddEntry(new EditorPreferencesEntry("editortweaks.timeline.jump_to_floor", new EditorPreferencesToggle(() => Main.ETConfig.timelineJumpToFloor, (v) =>
+			{
+				Main.ETConfig.timelineJumpToFloor = v;
+				Main.Entry.OnSaveGUI(Main.Entry);
+			})));
+			category.AddEntry(new EditorPreferencesEntry("editortweaks.timeline.jump_to_event", new EditorPreferencesToggle(() => Main.ETConfig.timelineJumpToEvent, (v) =>
+			{
+				Main.ETConfig.timelineJumpToEvent = v;
 				Main.Entry.OnSaveGUI(Main.Entry);
 			})));
 		}
@@ -37,9 +51,13 @@ namespace EditorTweaks.Patch
 			var delType = typeof(EditorPreferencesMenu).GetNestedType("AddCategoryDelegate",
 				System.Reflection.BindingFlags.NonPublic);
 
-			var methodInfo = typeof(PreferencePatch).GetMethod(nameof(CategoryCallback), BindingFlags.NonPublic | BindingFlags.Static);
+			var methodInfo = typeof(PreferencePatch).GetMethod(nameof(EditorTweaksCategoryCallback), BindingFlags.NonPublic | BindingFlags.Static);
 			var callback = Delegate.CreateDelegate(delType, methodInfo);
 			__instance.Call("AddCategory", new object[] { "editortweaks.editorTweaks", callback });
+
+			methodInfo = typeof(PreferencePatch).GetMethod(nameof(TimelineCategoryCallback), BindingFlags.NonPublic | BindingFlags.Static);
+			callback = Delegate.CreateDelegate(delType, methodInfo);
+			__instance.Call("AddCategory", new object[] { "editortweaks.timeline", callback });
 
 			KeybindPatch.SetupKeybindsMenu(__instance);
 		}

@@ -115,7 +115,7 @@ namespace EditorTweaks.Patch
 			{
 				ADOBase.customLevel.SetBackground();
 			}
-			else if (selectedEvent.IsDecoration)
+			else if (selectedEvent.info.isDecoration)
 			{
 				ADOBase.editor.UpdateDecorationObject(selectedEvent);
 			}
